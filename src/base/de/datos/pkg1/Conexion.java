@@ -36,7 +36,7 @@ public class Conexion {
             this.Puerto = "33066";
             this.BD = "DB_Taller";
             this.Usuario = "root";
-            this.Clave = "jordi123";
+            this.Clave = "7874Sbby";
             String driver = "com.mysql.jdbc.Driver";
             String url = "jdbc:mysql://" + this.IP + ":" + this.Puerto + "/" + this.BD
                     + "?noAccessToProcedureBodies=false&amp;zeroDateTimeBehavior=convertToNull";
