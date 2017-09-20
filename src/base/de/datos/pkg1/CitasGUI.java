@@ -27,18 +27,48 @@ public class CitasGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        lbl_clientes = new javax.swing.JLabel();
+        lbl_agregarCitas = new javax.swing.JLabel();
+        cBox_Clientes_AgrgrCitas = new javax.swing.JComboBox<>();
+        lbl_placa = new javax.swing.JLabel();
+        lbl_nombre = new javax.swing.JLabel();
+        txt_PlacaCliente = new javax.swing.JTextField();
+        txt_NombreCliente = new javax.swing.JTextField();
+        lbl_fondo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_clientes.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_clientes.setText("Clientes");
+        getContentPane().add(lbl_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        lbl_agregarCitas.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        lbl_agregarCitas.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_agregarCitas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_agregarCitas.setText("Agregar Citas");
+        getContentPane().add(lbl_agregarCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
+
+        getContentPane().add(cBox_Clientes_AgrgrCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 140, -1));
+
+        lbl_placa.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_placa.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_placa.setText("Placa");
+        getContentPane().add(lbl_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+
+        lbl_nombre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_nombre.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_nombre.setText("Nombre");
+        getContentPane().add(lbl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+
+        txt_PlacaCliente.setEnabled(false);
+        getContentPane().add(txt_PlacaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 150, -1));
+
+        txt_NombreCliente.setEnabled(false);
+        getContentPane().add(txt_NombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 150, -1));
+
+        lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/NaranjaOscuro.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -82,5 +112,13 @@ public class CitasGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cBox_Clientes_AgrgrCitas;
+    private javax.swing.JLabel lbl_agregarCitas;
+    private javax.swing.JLabel lbl_clientes;
+    private javax.swing.JLabel lbl_fondo;
+    private javax.swing.JLabel lbl_nombre;
+    private javax.swing.JLabel lbl_placa;
+    private javax.swing.JTextField txt_NombreCliente;
+    private javax.swing.JTextField txt_PlacaCliente;
     // End of variables declaration//GEN-END:variables
 }
