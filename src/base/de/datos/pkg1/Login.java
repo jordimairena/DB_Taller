@@ -34,6 +34,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Login");
+        System.out.println("");
     }
 
     /**
@@ -406,7 +407,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("PASSWORD");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 188, -1, -1));
-        getContentPane().add(txt_login_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 100, -1));
+        getContentPane().add(txt_login_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 120, -1));
 
         btn_login_ingresar.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         btn_login_ingresar.setText("INGRESAR");
@@ -415,11 +416,11 @@ public class Login extends javax.swing.JFrame {
                 btn_login_ingresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_login_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 120, 30));
-        getContentPane().add(txt_login_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 100, -1));
+        getContentPane().add(btn_login_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 120, 30));
+        getContentPane().add(txt_login_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 120, -1));
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/ColorAzul.jpg"))); // NOI18N
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 516, 380));
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
