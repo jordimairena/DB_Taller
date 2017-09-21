@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package base.de.datos.pkg1;
 
-/**
- *
- * @author Admin
- */
+
 public class Asesor {
     int id_Asesor;
     String Primer_nombre;
@@ -120,4 +112,4 @@ public class Asesor {
         return "Asesor{" + "id_Asesor=" + id_Asesor + ", Primer_nombre=" + Primer_nombre + ", Segundo_nombre=" + Segundo_nombre + ", Primer_apellido=" + Primer_apellido + ", Segundo_Apellido=" + Segundo_Apellido + ", Usuario=" + Usuario + ", Contrase\u00f1a=" + Contraseña + ", tel_asignado=" + tel_asignado + ", Id_cita=" + Id_cita + '}';
     }
     
-}
+}//Fin de la clase

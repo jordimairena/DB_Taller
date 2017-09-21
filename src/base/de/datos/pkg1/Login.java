@@ -5,15 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class Login extends javax.swing.JFrame {
 
     Connection myConn = null;
     Statement myStmt = null;
 
-
     public Login() {
-        
+
         try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/DB_Taller?useSSL=true", "root", "jordi123");
             myStmt = myConn.createStatement();
@@ -23,9 +21,9 @@ public class Login extends javax.swing.JFrame {
         }//Fin del try catch
 
         initComponents();
-        this.setLocationRelativeTo(null);
         this.setTitle("Login");
-        
+        this.setLocationRelativeTo(null);
+
     }//Fin del constructor general
 
     @SuppressWarnings("unchecked")
@@ -56,6 +54,8 @@ public class Login extends javax.swing.JFrame {
         cb_asesor_modif = new javax.swing.JComboBox<>();
         lbl_EliAse = new javax.swing.JLabel();
         cb_asesor_eliminar = new javax.swing.JComboBox<>();
+        lbl_idenAse = new javax.swing.JLabel();
+        txt_idAsesor = new javax.swing.JTextField();
         lbl_fondoAse = new javax.swing.JLabel();
         jd_admin_mecanicos = new javax.swing.JDialog();
         btn_mecanico_agregar = new javax.swing.JButton();
@@ -77,10 +77,51 @@ public class Login extends javax.swing.JFrame {
         lbl_NumTelMec = new javax.swing.JLabel();
         cb_mecanico_eliminar = new javax.swing.JComboBox<>();
         txt_mecanico_numtel = new javax.swing.JTextField();
+        lbl_idmec = new javax.swing.JLabel();
+        txt_idMecanico = new javax.swing.JTextField();
         lbl_fondoMec = new javax.swing.JLabel();
         jd_principal_asesor = new javax.swing.JDialog();
         jLabel23 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
+        jd_citas = new javax.swing.JDialog();
+        lbl_agreCit = new javax.swing.JLabel();
+        lbl_nomClie = new javax.swing.JLabel();
+        lbl_pNom = new javax.swing.JLabel();
+        lbl_Recorrido = new javax.swing.JLabel();
+        lbl_tipoRep = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lbl_SnomCi = new javax.swing.JLabel();
+        lbl_papCi = new javax.swing.JLabel();
+        lbl_sapci = new javax.swing.JLabel();
+        txt_PNomCita = new javax.swing.JTextField();
+        txt_SNomCita = new javax.swing.JTextField();
+        txt_PApCita = new javax.swing.JTextField();
+        txt_SApCita = new javax.swing.JTextField();
+        txt_RecorridoCita = new javax.swing.JTextField();
+        txt_PlacaCarro = new javax.swing.JTextField();
+        txt_TipoReparacion = new javax.swing.JTextField();
+        txt_TelefonoCita = new javax.swing.JTextField();
+        lbl_Estado = new javax.swing.JLabel();
+        cb_EstadoAgregarCita = new javax.swing.JComboBox<>();
+        lbl_FechaEntrada = new javax.swing.JLabel();
+        jdc_FechaEntradaCita = new com.toedter.calendar.JDateChooser();
+        lbl_FechaEntrega = new javax.swing.JLabel();
+        jdc_FechaEntregaCita = new com.toedter.calendar.JDateChooser();
+        btn_AgregarCita = new javax.swing.JButton();
+        btn_ModificarEstadoCita = new javax.swing.JButton();
+        lbl_fondoCitas = new javax.swing.JLabel();
+        jd_ModificarEstado = new javax.swing.JDialog();
+        lbl_modEst = new javax.swing.JLabel();
+        lbl_nomClienteCitaMod = new javax.swing.JLabel();
+        lbl_PlacaCarroCitaMod = new javax.swing.JLabel();
+        lbl_EstadoActual = new javax.swing.JLabel();
+        cb_NombreClienteModEstado = new javax.swing.JComboBox<>();
+        cb_PlacaModEstado = new javax.swing.JComboBox<>();
+        txt_EstadoActualCita = new javax.swing.JTextField();
+        lbl_NuevoEstado = new javax.swing.JLabel();
+        cb_EstadoCitaMod = new javax.swing.JComboBox<>();
+        btn_ModificarEstado = new javax.swing.JButton();
+        lbl_fondoModEstado = new javax.swing.JLabel();
         lbl_login = new javax.swing.JLabel();
         lbl_user = new javax.swing.JLabel();
         lbl_Password = new javax.swing.JLabel();
@@ -154,7 +195,7 @@ public class Login extends javax.swing.JFrame {
         jd_admin_asesores.getContentPane().add(txt_asesores_numtel, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 263, 150, -1));
 
         btn_asesores_agregar.setText("Agregar");
-        jd_admin_asesores.getContentPane().add(btn_asesores_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 315, -1, -1));
+        jd_admin_asesores.getContentPane().add(btn_asesores_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, -1, -1));
 
         btn_asesor_modif.setText("Modificar");
         jd_admin_asesores.getContentPane().add(btn_asesor_modif, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, -1, -1));
@@ -184,14 +225,20 @@ public class Login extends javax.swing.JFrame {
 
         jd_admin_asesores.getContentPane().add(cb_asesor_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, 214, -1));
 
+        lbl_idenAse.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_idenAse.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_idenAse.setText("Identificador");
+        jd_admin_asesores.getContentPane().add(lbl_idenAse, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+        jd_admin_asesores.getContentPane().add(txt_idAsesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 150, -1));
+
         lbl_fondoAse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/NaranjaOscuro.jpg"))); // NOI18N
         lbl_fondoAse.setText("jLabel1");
-        jd_admin_asesores.getContentPane().add(lbl_fondoAse, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 370));
+        jd_admin_asesores.getContentPane().add(lbl_fondoAse, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 440));
 
         jd_admin_mecanicos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_mecanico_agregar.setText("Agregar");
-        jd_admin_mecanicos.getContentPane().add(btn_mecanico_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
+        jd_admin_mecanicos.getContentPane().add(btn_mecanico_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, -1));
 
         lbl_mecanico.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lbl_mecanico.setForeground(new java.awt.Color(255, 255, 255));
@@ -260,8 +307,15 @@ public class Login extends javax.swing.JFrame {
         jd_admin_mecanicos.getContentPane().add(cb_mecanico_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 199, -1));
         jd_admin_mecanicos.getContentPane().add(txt_mecanico_numtel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 150, 20));
 
+        lbl_idmec.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_idmec.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_idmec.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_idmec.setText("Identificador");
+        jd_admin_mecanicos.getContentPane().add(lbl_idmec, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        jd_admin_mecanicos.getContentPane().add(txt_idMecanico, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 150, -1));
+
         lbl_fondoMec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/NaranjaOscuro.jpg"))); // NOI18N
-        jd_admin_mecanicos.getContentPane().add(lbl_fondoMec, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 390));
+        jd_admin_mecanicos.getContentPane().add(lbl_fondoMec, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 420));
 
         javax.swing.GroupLayout jd_principal_asesorLayout = new javax.swing.GroupLayout(jd_principal_asesor.getContentPane());
         jd_principal_asesor.getContentPane().setLayout(jd_principal_asesorLayout);
@@ -277,6 +331,159 @@ public class Login extends javax.swing.JFrame {
         jLabel23.setText("jLabel23");
 
         jRadioButton1.setText("jRadioButton1");
+
+        jd_citas.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_agreCit.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_agreCit.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_agreCit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_agreCit.setText("Citas");
+        jd_citas.getContentPane().add(lbl_agreCit, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 150, 40));
+
+        lbl_nomClie.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_nomClie.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_nomClie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_nomClie.setText("Placa del Carro");
+        jd_citas.getContentPane().add(lbl_nomClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
+
+        lbl_pNom.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_pNom.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_pNom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_pNom.setText("Primer Nombre");
+        jd_citas.getContentPane().add(lbl_pNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+
+        lbl_Recorrido.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_Recorrido.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Recorrido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_Recorrido.setText("Recorrido");
+        jd_citas.getContentPane().add(lbl_Recorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+
+        lbl_tipoRep.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_tipoRep.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_tipoRep.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_tipoRep.setText("Tipo Reparación");
+        jd_citas.getContentPane().add(lbl_tipoRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Teléfono");
+        jd_citas.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
+
+        lbl_SnomCi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_SnomCi.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_SnomCi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_SnomCi.setText("Segundo Nombre");
+        jd_citas.getContentPane().add(lbl_SnomCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+
+        lbl_papCi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_papCi.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_papCi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_papCi.setText("Primer Apellido");
+        jd_citas.getContentPane().add(lbl_papCi, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 120, 20));
+
+        lbl_sapci.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_sapci.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_sapci.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_sapci.setText("Segundo Apellido");
+        jd_citas.getContentPane().add(lbl_sapci, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        jd_citas.getContentPane().add(txt_PNomCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 140, -1));
+        jd_citas.getContentPane().add(txt_SNomCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 140, -1));
+        jd_citas.getContentPane().add(txt_PApCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 140, -1));
+        jd_citas.getContentPane().add(txt_SApCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 140, -1));
+        jd_citas.getContentPane().add(txt_RecorridoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 140, -1));
+        jd_citas.getContentPane().add(txt_PlacaCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 140, -1));
+        jd_citas.getContentPane().add(txt_TipoReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 140, 30));
+        jd_citas.getContentPane().add(txt_TelefonoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 140, -1));
+
+        lbl_Estado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_Estado.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Estado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_Estado.setText("Estado");
+        jd_citas.getContentPane().add(lbl_Estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, -1));
+
+        cb_EstadoAgregarCita.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        cb_EstadoAgregarCita.setForeground(new java.awt.Color(255, 255, 255));
+        cb_EstadoAgregarCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NO INGRESADO", "INGRESADO", "EN REPARACIÓN", "PENDIENTE DE REPUESTOS", "LISTO", "AUTO RETIRADO", "CANCELADA" }));
+        jd_citas.getContentPane().add(cb_EstadoAgregarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 140, -1));
+
+        lbl_FechaEntrada.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_FechaEntrada.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_FechaEntrada.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_FechaEntrada.setText("Fecha de Entrada");
+        jd_citas.getContentPane().add(lbl_FechaEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
+        jd_citas.getContentPane().add(jdc_FechaEntradaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 200, -1));
+
+        lbl_FechaEntrega.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_FechaEntrega.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_FechaEntrega.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_FechaEntrega.setText("Fecha de Entrega");
+        jd_citas.getContentPane().add(lbl_FechaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
+        jd_citas.getContentPane().add(jdc_FechaEntregaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 190, -1));
+
+        btn_AgregarCita.setText("Agregar Cita");
+        jd_citas.getContentPane().add(btn_AgregarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(491, 310, 120, -1));
+
+        btn_ModificarEstadoCita.setText("Modificar Estado");
+        btn_ModificarEstadoCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ModificarEstadoCitaActionPerformed(evt);
+            }
+        });
+        jd_citas.getContentPane().add(btn_ModificarEstadoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, -1, -1));
+
+        lbl_fondoCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/NaranjaOscuro.jpg"))); // NOI18N
+        jd_citas.getContentPane().add(lbl_fondoCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 850, 480));
+
+        jd_ModificarEstado.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_modEst.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_modEst.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_modEst.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_modEst.setText("Modificar Estado de Cita");
+        jd_ModificarEstado.getContentPane().add(lbl_modEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+
+        lbl_nomClienteCitaMod.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_nomClienteCitaMod.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_nomClienteCitaMod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_nomClienteCitaMod.setText("Nombre del Cliente");
+        jd_ModificarEstado.getContentPane().add(lbl_nomClienteCitaMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        lbl_PlacaCarroCitaMod.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_PlacaCarroCitaMod.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_PlacaCarroCitaMod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_PlacaCarroCitaMod.setText("Placa del Carro");
+        jd_ModificarEstado.getContentPane().add(lbl_PlacaCarroCitaMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 120, -1));
+
+        lbl_EstadoActual.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_EstadoActual.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_EstadoActual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_EstadoActual.setText("Estado Actual");
+        jd_ModificarEstado.getContentPane().add(lbl_EstadoActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 120, -1));
+
+        jd_ModificarEstado.getContentPane().add(cb_NombreClienteModEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 170, -1));
+
+        jd_ModificarEstado.getContentPane().add(cb_PlacaModEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 170, -1));
+
+        txt_EstadoActualCita.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_EstadoActualCita.setEnabled(false);
+        jd_ModificarEstado.getContentPane().add(txt_EstadoActualCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 170, -1));
+
+        lbl_NuevoEstado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_NuevoEstado.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_NuevoEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_NuevoEstado.setText("Nuevo Estado");
+        jd_ModificarEstado.getContentPane().add(lbl_NuevoEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, -1, -1));
+
+        jd_ModificarEstado.getContentPane().add(cb_EstadoCitaMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 180, -1));
+
+        btn_ModificarEstado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_ModificarEstado.setForeground(new java.awt.Color(0, 0, 0));
+        btn_ModificarEstado.setText("Modificar");
+        jd_ModificarEstado.getContentPane().add(btn_ModificarEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
+
+        lbl_fondoModEstado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/ColorAzul.jpg"))); // NOI18N
+        jd_ModificarEstado.getContentPane().add(lbl_fondoModEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 300));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -336,6 +543,13 @@ public class Login extends javax.swing.JFrame {
         jd_admin_mecanicos.setVisible(true);
     }//GEN-LAST:event_btn_MecanicosActionPerformed
 
+    private void btn_ModificarEstadoCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ModificarEstadoCitaActionPerformed
+        this.jd_ModificarEstado.setTitle("Modificar Estado");
+        this.jd_ModificarEstado.pack();
+        this.jd_ModificarEstado.setModal(true);
+        this.jd_ModificarEstado.setLocationRelativeTo(null);
+        this.jd_ModificarEstado.setVisible(true);
+    }//GEN-LAST:event_btn_ModificarEstadoCitaActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -367,8 +581,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_AgregarCita;
     private javax.swing.JButton btn_Asesores;
     private javax.swing.JButton btn_Mecanicos;
+    private javax.swing.JButton btn_ModificarEstado;
+    private javax.swing.JButton btn_ModificarEstadoCita;
     private javax.swing.JButton btn_asesor_eliminar;
     private javax.swing.JButton btn_asesor_eliminar1;
     private javax.swing.JButton btn_asesor_modif;
@@ -376,46 +593,86 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btn_login_ingresar;
     private javax.swing.JButton btn_mecanico_agregar;
     private javax.swing.JButton btn_mecanico_modif;
+    private javax.swing.JComboBox<String> cb_EstadoAgregarCita;
+    private javax.swing.JComboBox<String> cb_EstadoCitaMod;
+    private javax.swing.JComboBox<String> cb_NombreClienteModEstado;
+    private javax.swing.JComboBox<String> cb_PlacaModEstado;
     private javax.swing.JComboBox<String> cb_asesor_eliminar;
     private javax.swing.JComboBox<String> cb_asesor_modif;
     private javax.swing.JComboBox<String> cb_asesor_modif1;
     private javax.swing.JComboBox<String> cb_mecanico_eliminar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JDialog jd_ModificarEstado;
     private javax.swing.JDialog jd_admin_asesores;
     private javax.swing.JDialog jd_admin_mecanicos;
     private javax.swing.JDialog jd_administador;
+    private javax.swing.JDialog jd_citas;
     private javax.swing.JDialog jd_principal_asesor;
+    private com.toedter.calendar.JDateChooser jdc_FechaEntradaCita;
+    private com.toedter.calendar.JDateChooser jdc_FechaEntregaCita;
     private javax.swing.JLabel lbl_EliAse;
+    private javax.swing.JLabel lbl_Estado;
+    private javax.swing.JLabel lbl_EstadoActual;
+    private javax.swing.JLabel lbl_FechaEntrada;
+    private javax.swing.JLabel lbl_FechaEntrega;
     private javax.swing.JLabel lbl_Fondo;
     private javax.swing.JLabel lbl_ModMec;
+    private javax.swing.JLabel lbl_NuevoEstado;
     private javax.swing.JLabel lbl_NumTelMec;
     private javax.swing.JLabel lbl_PapMec;
     private javax.swing.JLabel lbl_Password;
+    private javax.swing.JLabel lbl_PlacaCarroCitaMod;
+    private javax.swing.JLabel lbl_Recorrido;
     private javax.swing.JLabel lbl_SApMec;
     private javax.swing.JLabel lbl_SNomMec;
+    private javax.swing.JLabel lbl_SnomCi;
     private javax.swing.JLabel lbl_agMec;
+    private javax.swing.JLabel lbl_agreCit;
     private javax.swing.JLabel lbl_agrgAse;
     private javax.swing.JLabel lbl_asess;
     private javax.swing.JLabel lbl_elmMec;
     private javax.swing.JLabel lbl_fondo;
     private javax.swing.JLabel lbl_fondoAse;
+    private javax.swing.JLabel lbl_fondoCitas;
     private javax.swing.JLabel lbl_fondoMec;
+    private javax.swing.JLabel lbl_fondoModEstado;
+    private javax.swing.JLabel lbl_idenAse;
+    private javax.swing.JLabel lbl_idmec;
     private javax.swing.JLabel lbl_login;
     private javax.swing.JLabel lbl_mecanico;
     private javax.swing.JLabel lbl_modAses;
+    private javax.swing.JLabel lbl_modEst;
+    private javax.swing.JLabel lbl_nomClie;
+    private javax.swing.JLabel lbl_nomClienteCitaMod;
     private javax.swing.JLabel lbl_numTelAse;
+    private javax.swing.JLabel lbl_pNom;
     private javax.swing.JLabel lbl_papAse;
+    private javax.swing.JLabel lbl_papCi;
     private javax.swing.JLabel lbl_papMec;
     private javax.swing.JLabel lbl_pnomAes;
     private javax.swing.JLabel lbl_sapAses;
+    private javax.swing.JLabel lbl_sapci;
     private javax.swing.JLabel lbl_snomAse;
+    private javax.swing.JLabel lbl_tipoRep;
     private javax.swing.JLabel lbl_user;
+    private javax.swing.JTextField txt_EstadoActualCita;
+    private javax.swing.JTextField txt_PApCita;
+    private javax.swing.JTextField txt_PNomCita;
+    private javax.swing.JTextField txt_PlacaCarro;
+    private javax.swing.JTextField txt_RecorridoCita;
+    private javax.swing.JTextField txt_SApCita;
+    private javax.swing.JTextField txt_SNomCita;
+    private javax.swing.JTextField txt_TelefonoCita;
+    private javax.swing.JTextField txt_TipoReparacion;
     private javax.swing.JTextField txt_asesores_numtel;
     private javax.swing.JTextField txt_asesores_papellido;
     private javax.swing.JTextField txt_asesores_pnombre;
     private javax.swing.JTextField txt_asesores_sapellido;
     private javax.swing.JTextField txt_asesores_snombre;
+    private javax.swing.JTextField txt_idAsesor;
+    private javax.swing.JTextField txt_idMecanico;
     private javax.swing.JTextField txt_login_password;
     private javax.swing.JTextField txt_login_user;
     private javax.swing.JTextField txt_mecanico_numtel;
@@ -424,4 +681,4 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField txt_mecanico_sapellido;
     private javax.swing.JTextField txt_mecanico_snombre;
     // End of variables declaration//GEN-END:variables
-}
+}//FIn de la clase

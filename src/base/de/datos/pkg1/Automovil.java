@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package base.de.datos.pkg1;
 
-/**
- *
- * @author Admin
- */
 public class Automovil {
     String Placa;
     String modelo;
@@ -59,4 +50,4 @@ public class Automovil {
         return "Automovil{" + "Placa=" + Placa + ", modelo=" + modelo + ", num_motor=" + num_motor + ", id_cliente=" + id_cliente + '}';
     }
     
-}
+}//Fin de la clase

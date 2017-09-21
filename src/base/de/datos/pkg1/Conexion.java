@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package base.de.datos.pkg1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-/**
- *
- * @author Admin
- */
+
 public class Conexion {
     String IP;
     String Puerto;
@@ -27,7 +19,7 @@ public class Conexion {
         this.Usuario = "";
         this.Clave = "";
         this.conn = null;
-    }
+    }//Fin del constructor
 
     public Connection mkConnRe() throws Exception {
         try {
@@ -44,8 +36,8 @@ public class Conexion {
             this.conn = DriverManager.getConnection(url, this.Usuario, this.Clave);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }//Fin del try catch
         return this.conn;
-    }
+    }//Fin de la conexion
     
-}
+}//Fin de la clase
