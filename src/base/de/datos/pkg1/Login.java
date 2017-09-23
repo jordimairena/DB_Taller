@@ -23,6 +23,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Login");
         this.setLocationRelativeTo(null);
+        System.out.println("");
 
     }//Fin del constructor general
 
