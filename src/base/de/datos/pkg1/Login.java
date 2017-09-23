@@ -19,8 +19,9 @@ public class Login extends javax.swing.JFrame {
     String Mensaje="";
     Connection myConn = null;
     Statement myStmt = null;
-
+    
     public Login() {
+        System.out.println("borrar esto");
         System.out.println("hola");
         try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/DB_Taller?useSSL=true", "root", "jordi123");
@@ -92,8 +93,6 @@ public class Login extends javax.swing.JFrame {
         txt_idMecanico = new javax.swing.JTextField();
         lbl_fondoMec = new javax.swing.JLabel();
         jd_principal_asesor = new javax.swing.JDialog();
-        jLabel23 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
         jd_citas = new javax.swing.JDialog();
         lbl_agreCit = new javax.swing.JLabel();
         lbl_nomClie = new javax.swing.JLabel();
@@ -336,10 +335,6 @@ public class Login extends javax.swing.JFrame {
             jd_principal_asesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
-
-        jLabel23.setText("jLabel23");
-
-        jRadioButton1.setText("jRadioButton1");
 
         jd_citas.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -637,8 +632,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_asesor_modif1;
     private javax.swing.JComboBox<String> cb_mecanico_eliminar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JDialog jd_ModificarEstado;
     private javax.swing.JDialog jd_admin_asesores;
     private javax.swing.JDialog jd_admin_mecanicos;
