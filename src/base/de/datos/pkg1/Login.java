@@ -1,12 +1,22 @@
 package base.de.datos.pkg1;
 
+import javax.mail.PasswordAuthentication;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-
+    String To="";
+    String Mensaje="";
     Connection myConn = null;
     Statement myStmt = null;
 
@@ -546,7 +556,36 @@ public class Login extends javax.swing.JFrame {
         this.jd_ModificarEstado.setLocationRelativeTo(null);
         this.jd_ModificarEstado.setVisible(true);
     }//GEN-LAST:event_btn_ModificarEstadoCitaActionPerformed
+    public void SendMail() {
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
 
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {                    
+                    @Override
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication("jordi.mairena@gmail.com","iexterminator159");
+                    }
+                });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("jordi.mairena@gmail.com"));
+            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(To));
+            message.setSubject("Informe Sobre la cita");
+            message.setText(Mensaje);
+
+            Transport.send(message);
+            JOptionPane.showMessageDialog(this, "Su mensaje ha sido enviado");
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
