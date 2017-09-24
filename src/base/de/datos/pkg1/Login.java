@@ -1,17 +1,28 @@
 package base.de.datos.pkg1;
 
+import javax.mail.PasswordAuthentication;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-
+    String To="";
+    String Mensaje="";
     Connection myConn = null;
     Statement myStmt = null;
-
+    
     public Login() {
-
+        System.out.println("borrar esto");
+        System.out.println("hola");
         try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/DB_Taller?useSSL=true", "root", "jordi123");
             myStmt = myConn.createStatement();
@@ -82,8 +93,6 @@ public class Login extends javax.swing.JFrame {
         txt_mecanico_pnombre = new javax.swing.JTextField();
         lbl_papMec = new javax.swing.JLabel();
         jd_principal_asesor = new javax.swing.JDialog();
-        jLabel23 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
         jd_citas = new javax.swing.JDialog();
         jCPanel3 = new com.bolivia.panel.JCPanel();
         lbl_FechaEntrega = new javax.swing.JLabel();
@@ -111,6 +120,11 @@ public class Login extends javax.swing.JFrame {
         txt_SApCita = new javax.swing.JTextField();
         jxd_FechaEntradaCita = new org.jdesktop.swingx.JXDatePicker();
         jxd_FechaEntregaCita = new org.jdesktop.swingx.JXDatePicker();
+        lbl_FechaEntrada = new javax.swing.JLabel();
+        lbl_FechaEntrega = new javax.swing.JLabel();
+        btn_AgregarCita = new javax.swing.JButton();
+        btn_ModificarEstadoCita = new javax.swing.JButton();
+        lbl_fondoCitas = new javax.swing.JLabel();
         jd_ModificarEstado = new javax.swing.JDialog();
         jCPanel4 = new com.bolivia.panel.JCPanel();
         cb_EstadoCitaMod = new javax.swing.JComboBox<>();
@@ -622,6 +636,7 @@ public class Login extends javax.swing.JFrame {
         lbl_papCi.setForeground(new java.awt.Color(255, 255, 255));
         lbl_papCi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_papCi.setText("Primer Apellido");
+        jd_citas.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_agreCit.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lbl_agreCit.setForeground(new java.awt.Color(255, 255, 255));
@@ -668,6 +683,19 @@ public class Login extends javax.swing.JFrame {
         lbl_sapci.setForeground(new java.awt.Color(255, 255, 255));
         lbl_sapci.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_sapci.setText("Segundo Apellido");
+
+        lbl_FechaEntrada.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_FechaEntrada.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_FechaEntrada.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_FechaEntrada.setText("Fecha de Entrada");
+        jd_citas.getContentPane().add(lbl_FechaEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
+
+        lbl_FechaEntrega.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_FechaEntrega.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_FechaEntrega.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_FechaEntrega.setText("Fecha de Entrega");
+        jd_citas.getContentPane().add(lbl_FechaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
+
 
         javax.swing.GroupLayout jCPanel3Layout = new javax.swing.GroupLayout(jCPanel3);
         jCPanel3.setLayout(jCPanel3Layout);
@@ -903,6 +931,24 @@ public class Login extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
+        jd_ModificarEstado.getContentPane().add(cb_PlacaModEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 170, -1));
+
+        txt_EstadoActualCita.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_EstadoActualCita.setEnabled(false);
+        jd_ModificarEstado.getContentPane().add(txt_EstadoActualCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 170, -1));
+
+        lbl_NuevoEstado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lbl_NuevoEstado.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_NuevoEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_NuevoEstado.setText("Nuevo Estado");
+        jd_ModificarEstado.getContentPane().add(lbl_NuevoEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, -1, -1));
+
+        jd_ModificarEstado.getContentPane().add(cb_EstadoCitaMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 180, -1));
+
+        btn_ModificarEstado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_ModificarEstado.setText("Modificar");
+        jd_ModificarEstado.getContentPane().add(btn_ModificarEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
+
         javax.swing.GroupLayout jd_ModificarEstadoLayout = new javax.swing.GroupLayout(jd_ModificarEstado.getContentPane());
         jd_ModificarEstado.getContentPane().setLayout(jd_ModificarEstadoLayout);
         jd_ModificarEstadoLayout.setHorizontalGroup(
@@ -1027,7 +1073,36 @@ public class Login extends javax.swing.JFrame {
         this.jd_ModificarEstado.setLocationRelativeTo(null);
         this.jd_ModificarEstado.setVisible(true);
     }//GEN-LAST:event_btn_ModificarEstadoCitaActionPerformed
+    public void SendMail() {
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
 
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {                    
+                    @Override
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication("jordi.mairena@gmail.com","iexterminator159");
+                    }
+                });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("jordi.mairena@gmail.com"));
+            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(To));
+            message.setSubject("Informe Sobre la cita");
+            message.setText(Mensaje);
+
+            Transport.send(message);
+            JOptionPane.showMessageDialog(this, "Su mensaje ha sido enviado");
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1083,8 +1158,6 @@ public class Login extends javax.swing.JFrame {
     private com.bolivia.panel.JCPanel jCPanel3;
     private com.bolivia.panel.JCPanel jCPanel4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JDialog jd_ModificarEstado;
     private javax.swing.JDialog jd_admin_asesores;
     private javax.swing.JDialog jd_admin_mecanicos;
